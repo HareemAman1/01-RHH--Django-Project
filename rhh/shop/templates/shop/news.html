@@ -1,0 +1,145 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+  <title>RHH pharmacy</title>
+
+  <style>
+    #news{
+      border-bottom: 4px solid #10e7f4;
+      font-weight: bold;
+    }
+  </style>
+
+  {% load static %}
+  <!-- Favicon  -->
+</head>
+
+
+  <!-- news section -->
+  <section class="news_section layout_padding">
+    <div class="container">
+      <div class="custom_heading-container ">
+        <h2>
+          News
+        </h2>
+      </div>
+
+      <div class="img-box">
+        <img src="{% static 'shop/images/news1.png' %}" alt="">
+      </div>
+      <div class="detail-box">
+        <h4>
+          Study opens new possibilities of tailoring radiopharmaceutical treatment to neuroendocrine cancer patients
+          <br>
+        </h4>
+        <p>
+          The results of this study demonstrate that not all tumors are created equal; some are more prone to respond to
+          PRRT, and some are less susceptible to radiopharmaceutical therapy. This is the reason why our research is
+          important: to understand from the start which patients will require an intensified treatment plan and which
+          patients, instead, can benefit from a lighter regimen will tremendously improve their management.
+        </p>
+        <div class="d-flex justify-content-center">
+          <a
+            href="https://www.news-medical.net/news/20230407/Study-opens-new-possibilities-of-tailoring-radiopharmaceutical-treatment-to-neuroendocrine-cancer-patients.aspx" target="_blank">
+            Read More
+          </a>
+        </div>
+      </div>
+      <br><br><br>
+
+      <div class="img-box">
+        <img src="{% static 'shop/images/news2.png' %}" alt="">
+      </div>
+      <div class="detail-box">
+        <h4>
+          World Health Day: Doctors explain important medical tests you should get in your 20s, 30s and 40s
+        </h4>
+        <p>
+          As World Health Day approaches, we as medical experts are emphasizing the importance of getting routine
+          medical tests to ensure a healthy life in the long term. “The tests that are necessary for individuals in
+          their 20s, 30s, and 40s may vary, so it is essential to consult a doctor for personalized recommendations,”
+          notes Dr. Shuchin Bajaj, Founder Director, Ujala Cygnus Group of Hospitals.
+        </p>
+        <div class="d-flex justify-content-center">
+          <a
+            href="https://timesofindia.indiatimes.com/life-style/health-fitness/health-news/world-health-day-doctors-explain-important-medical-tests-you-should-get-in-your-20s-30s-and-40s/articleshow/99304350.cms" target="_blank">
+            Read More
+          </a>
+        </div>
+      </div>
+      <br><br><br>
+
+        <div class="img-box">
+          <img src="{% static 'shop/images/news3.png' %}" alt="">
+        </div>
+        <div class="detail-box">
+          <h4>
+            ChatGPT provides correct health advice about 88% of the time, study finds
+          </h4>
+          <p>
+            As more consumers turn to the newly available ChatGPT for health advice, researchers are eager to see whether the information provided by the artificial intelligence chatbot is reliable and accurate. A new study conducted by researchers at the University of Maryland School of Medicine (UMSOM) indicates that the answers generated provide correct information the vast majority of the time; sometimes, though, the information is inaccurate or even fictitious.
+          </p>
+          <div class="d-flex justify-content-center">
+            <a
+              href="https://www.news-medical.net/news/20230404/ChatGPT-provides-correct-health-advice-about-8825-of-the-time-study-finds.aspx" target="_blank">
+              Read More
+            </a>
+          </div>
+        </div>
+        <br><br><br>
+
+        <div class="img-box">
+          <img src="{% static 'shop/images/news4.png' %}" alt="">
+        </div>
+        <div class="detail-box">
+          <h4>
+            Walking 8,000 steps just 1-2 days a week linked to significant health benefits          
+          </h4>
+          <p>
+            Briskly walking 8,000 or more steps each day of the week is associated with a significant decrease in all-cause and cardiovascular mortality. A new study finds, however, that people taking just 8,000 steps one or two days a week are also less likely to die over a 10-year follow-up period. The study published in JAMA Network OpenTrusted Source found that over a decade of follow-up, people 20 years or older who took 8,000 or more steps on one or two days a week were 14.9% less likely to die compared to people who were sedentary.
+          </p>
+          <div class="d-flex justify-content-center">
+            <a
+              href="https://www.medicalnewstoday.com/articles/brisk-walking-1-to-2-days-a-week-reduce-all-cause-cardiovascular-mortality" target="_blank">
+              Read More
+            </a>
+          </div>
+        </div>
+        <br><br><br>
+
+        <div class="img-box">
+          <img src="{% static 'shop/images/news5.png' %}" alt="">
+        </div>
+        <div class="detail-box">
+          <h4>
+            Scientists may have found the 'immunity' secret to living to 100
+          </h4>
+          <p>
+            Led by researchers from Tufts Medical Center and Boston University School of Medicine, a new study is helping to answer this question by finding that centenarians possess a unique immune cell composition and activity, giving them a highly-functional immune system and allowing them to live longer. Scientists believe these findings could be used potentially to develop healthy aging therapeutics.
+          </p>
+          <div class="d-flex justify-content-center">
+            <a
+              href="https://www.medicalnewstoday.com/articles/scientists-may-have-found-the-immunity-secret-to-living-to-100#What-happens-to-our-immune-system-as-we-age?" target="_blank">
+              Read More
+            </a>
+          </div>
+        </div>
+        <br><br><br>
+
+       <br><br>
+       <div class="detail-box">
+        <div class="d-flex justify-content-center">
+          <a href="https://www.medicalnewstoday.com/" target="_blank">
+            See More News
+          </a> 
+        </div>
+      </div>
+    </div>
+
+
+  </section>
+
+  <!-- end news section -->
+
+
+{% endblock %}

@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <head>
+        <title>SignUp</title>
+    </head>
+
+
+    <!-- Contact section -->
+    <section class="contact_section" style="height: 920px">
+        <div class="container pt-5">
+            <div class="row  d-flex justify-content-center ">
+                <div class="custom_heading-container ">
+                    <h2>
+                        Create Account
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="container layout_padding2">
+            <div class="row d-flex justify-content-center ">
+                <div class="col-md-5">
+                    <div class="form_contaier">
+                        <form method="post" action="{% url 'signup' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="fname">First Name</label>
+                                <input id="fname" name="fname" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="lname">Last Name</label>
+                                <input id="lname" name="lname" type="text" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input id="email" name="email" type="email" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="password">Password</label>
+                                <input id="password" name="password" type="password" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="age">Age</label>
+                                <input id="age" name="age" type="number" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="phone">Phone</label>
+                                <input id="phone" name="phone" type="text" class="form-control">
+                            </div>
+                             <div class="form-group">
+                                <label for="address">Address</label>
+                                 <textarea rows="4" id="address" name="address" type="text" class="form-control"></textarea>
+                            </div>
+
+                            <button type="submit" class="">Create</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if error %}
+        <script>
+            swal({
+                title: 'Invalid Data',
+                icon: 'error',
+                text: '{{ error_msg }}'
+            })
+
+        </script>
+    {% endif %}
+{% endblock %}
+

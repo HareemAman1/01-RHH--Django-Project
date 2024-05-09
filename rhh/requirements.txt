@@ -1,0 +1,7 @@
+asgiref
+Django
+djangorestframework
+pytz
+sqlparse
+python-dotenv
+django-jazzmin

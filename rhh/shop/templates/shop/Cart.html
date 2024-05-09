@@ -1,0 +1,291 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <head>
+        <title>Cart</title>
+        <style>
+            #cart {
+                border-bottom: 4px solid #10e7f4;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <section class="about_section layout_padding">
+        <div class="container">
+            <div class="custom_heading-container ">
+                <h2>
+                    Cart
+                </h2>
+            </div>
+        </div>
+    </section>
+    <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+    <!------ Include the above in your HEAD tag ---------->
+
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-md-offset-1">
+                <table class="table table-hover">
+                    <thead>
+                    <tr>
+                        <th>Product</th>
+                        <th>Quantity</th>
+                        <th class="text-center">Price</th>
+                        <th class="text-center">Total</th>
+                        <th> </th>
+                    </tr>
+                    </thead>
+                    <tbody id="product-list">
+
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script type="text/javascript" src="{% static 'shop/js/jquery-3.4.1.min.js' %}"></script>
+    <script type="text/javascript" src="{% static 'shop/js/bootstrap.js' %}"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js">
+    </script>
+    <script type="text/javascript">
+        var grandTotal = 0;
+        var dev = 0;
+        var productList = sessionStorage.getItem('cart');
+        var tableBody = document.getElementById('product-list');
+        productList = JSON.parse(productList);
+
+        function removeFromCart(key) {
+            // Remove the product from the session
+            delete productList[key];
+            sessionStorage.setItem('cart', JSON.stringify(productList));
+
+            // Refresh the table
+            tableBody.innerHTML = '';
+            grandTotal = 0;
+            dev = 0;
+            renderCart();
+        }
+
+        function updateQuantity(key, newQuantity) {
+            // Update the quantity of the product in the session
+            productList[key].quantity = newQuantity;
+            if (newQuantity < 1) {
+                // Display an error message or perform any necessary action
+                alert("Quantity must be at least 1");
+                productList[key].quantity = 1;
+            }
+            sessionStorage.setItem('cart', JSON.stringify(productList));
+
+            // Refresh the table
+            tableBody.innerHTML = '';
+            grandTotal = 0;
+
+            renderCart();
+        }
+
+        function renderCart() {
+            for (var key in productList) {
+                if (productList.hasOwnProperty(key)) {
+                    var product = productList[key];
+                    var row = document.createElement('tr');
+                    var total = product.price * product.quantity;
+                    var html = `
+          <td class="col-sm-8 col-md-6">
+            <div class="media">
+              <a class="thumbnail pull-left" href="#">
+                <img class="media-object" src="${product.url}" style="width: 72px; height: 72px;">
+              </a>
+              <div class="media-body">
+                <h4 class="media-heading"><a href="#">${product.name}</a></h4>
+              </div>
+            </div>
+          </td>
+          <td class="col-sm-1 col-md-1" style="text-align: center">
+<input type="number" value="${product.quantity}" onchange="updateQuantity('${key}', this.value)">
+          </td>
+          <td class="col-sm-1 col-md-1 text-center"><strong>${product.price}</strong></td>
+          <td class="col-sm-1 col-md-1 text-center"><strong>${total}</strong></td>
+          <td class="col-sm-1 col-md-1">
+            <button type="button" class="btn btn-danger" onclick="removeFromCart('${key}')">
+              <span class="glyphicon glyphicon-remove"></span> Remove
+            </button>
+          </td>
+        `;
+                    row.innerHTML = html;
+                    grandTotal = total + grandTotal;
+                    tableBody.appendChild(row);
+                }
+            }
+
+            var row = document.createElement('tr');
+            var gtotalhtml = `
+      <tr>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+        <td><h5>Subtotal</h5></td>
+        <td class="text-right"><h5><strong>RS ${grandTotal}</strong></h5></td>
+      </tr>
+    `;
+            row.innerHTML = gtotalhtml;
+            tableBody.appendChild(row);
+
+            row = document.createElement('tr');
+            debugger;
+
+            if (productList) {
+                if (Object.keys(productList).length !== 0){
+                                    dev = 200;
+
+                }
+            }
+
+            var esthtml = `
+      <tr>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+        <td><strong>Estimated Delivery</strong></td>
+        <td class="text-right"><strong>RS ${dev}</strong></td>
+      </tr>
+    `;
+            var gtotal = grandTotal + dev;
+            row.innerHTML = esthtml;
+            tableBody.appendChild(row);
+
+            row = document.createElement('tr');
+            var esthtml3 = `
+      <tr>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+        <td><h3>Total</h3></td>
+        <td class="text-right"><h3><strong>RS ${gtotal}</strong></h3></td>
+      </tr>
+    `;
+            row.innerHTML = esthtml3;
+            tableBody.appendChild(row);
+
+            var bhtml = `
+      <tr>
+        <td>  </td>
+        <td>  </td>
+        <td>  </td>
+        <td>
+          <button type="button" class="btn btn-default">
+            <span class="glyphicon glyphicon-shopping-cart"></span><a href={% url 'buy' %}> Continue Shopping</a>
+          </button>
+        </td>
+        <td>
+          <button type="button" class="btn btn-success" onclick="checkout()">
+            Checkout <span class="glyphicon glyphicon-play"></span>
+          </button>
+        </td>
+      </tr>
+    `;
+            row = document.createElement('tr');
+            row.innerHTML = bhtml;
+            tableBody.appendChild(row);
+        }
+
+        function checkout() {
+            if (Object.keys(productList).length > 0) {
+                var pList = Object.values(productList);
+                var data = {
+                    cart: JSON.stringify(pList),
+                    csrfmiddlewaretoken: "{{ csrf_token }}",
+                };
+                // Send the POST request using AJAX
+                $.ajax({
+                    type: 'POST',
+                    url: "{% url 'place-order' %}",
+                    data: data,
+                    success: function (response) {
+
+                        swal({
+                            title: response.message,
+                            icon: 'success',
+                            text: 'Your Order Id is ' + response.order_id
+                        })
+                        sessionStorage.removeItem('cart');
+                        // Clear the table content
+                        var tableBody = document.getElementById('product-list');
+                        tableBody.innerHTML = '';
+                        productList = {};
+                        grandTotal = 0;
+                        dev=0;
+                        renderCart();
+                        // Handle the success response
+
+
+                        {#window.location.href = "{% url 'home' %}";#}
+                    },
+                    error: function (xhr, status, error) {
+                        debugger
+                        swal({
+                            title: 'Error',
+                            icon: 'error',
+                            text: 'Error Occurred!'
+                        })
+                        // Handle the error
+                        console.log(error);
+                          renderCart();
+                    }
+                });
+            }
+            else{
+                 alert("Cart is Empty!");
+            }
+            // Prepare the data to be sent in the POST request
+
+        }
+
+        renderCart();
+    </script>
+
+    <script type="text/javascript">
+        $(".owl-carousel").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            navText: [],
+            autoplay: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+    </script>
+    <script type="text/javascript">
+        $(".owl-2").owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: true,
+            navText: [],
+            autoplay: true,
+
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        });
+    </script>
+
+{% endblock %}

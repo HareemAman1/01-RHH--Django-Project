@@ -1,0 +1,117 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <head>
+        <title>About</title>
+        <style>
+            #about {
+                border-bottom: 4px solid #10e7f4;
+                font-weight: bold;
+            }
+        </style>
+    </head>
+
+    <!-- about section -->
+    <section class="about_section layout_padding">
+        <div class="container">
+            <div class="custom_heading-container ">
+                <h2>
+                    About Us
+                </h2>
+            </div>
+
+            <div class="img-box">
+                <img src="{% static 'shop/images/about-medicine.png' %}" alt="">
+            </div>
+            <div class="detail-box">
+                <p>
+                    RHH Pharmacy is Pakistan’s leading digital healthcare platform that brings you complete health
+                    facilities right to your doorstep. Order medicines online with our e-pharmacy from our website right
+                    from the comfort of your home. RHH Pharmacy is the first-ever internationally certified and
+                    registered healthcare merchant (LegitScript Certified). We pride ourselves in providing our users
+                    with authentic medicines, medical equipment and health supplements in Pakistan.<br><br>
+                    Over the time we have built trust by offering our customers the utmost convenience to buy medicines.
+                    You can also look for reviews about your medicines and learn its uses from our clients remarks, that
+                    will help you make better health choices.<br><br>
+                    You can order online medicines, Supplements, multivitamins and other house-hold products from
+                    anywhere in Pakistan with ease (Karachi, Islamabad, Lahore, Rawalpindi & more) by using our fast
+                    medicine delivery service . In Sahiwal, you can get your selected medicines within 60 minutes of
+                    your order confirmation.<br><br>
+                    RHH Pharmacy is an online pharmacy that sells genuine medicines at a discounted rate. We offer the
+                    lowest medicine price in Pakistan while offering promo codes with discounts. We offer medicines from
+                    reputable brands , Pfizer, GSK, Getz Pharma, and more.
+                </p>
+                <div class="d-flex justify-content-center">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact section -->
+    <section class="contact_section">
+        <div class="container">
+            <div class="row">
+                <div class="custom_heading-container ">
+                    <h2>
+                        Message Us
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="container layout_padding2">
+            <div class="row">
+                <div class="col-md-5">
+                    <div class="form_container">
+                        <form role="form" action={% url 'about' %} method="POST">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <label for="number">Name</label>
+                                <input type="text" class="form-control" id="name" name="name">
+                            </div>
+                            <div class="form-group">
+                                <label for="pnumber">Phone Number</label>
+                                <input type="text" class="form-control" id="pnumber" name="pnumber">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email">Email </label>
+                                <input type="email" class="form-control" id="email" name="email">
+                            </div>
+
+                            <div class="form-group">
+                                <label for="msg">Message</label>
+                                <textarea type="text" class="form-control" id="msg" name="msg" cols="30"
+                                          rows="10"></textarea>
+                            </div>
+                            <button type="submit" class="form-group btn btn-primary">Send</button>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-md-7">
+                    <div class="detail-box">
+                        <h3>
+                            Reviews and Recommendations
+                        </h3>
+                        <p>
+                            To be our customers' first choice, we would appreciate your kind words. Leave your reviews
+                            and let us and others know your experence with us. <br>
+                            Recommend us more medicines and other products that are not Available here and we will stock
+                            it for you.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        {% if send %}
+            swal({
+                title: 'Email Successfully',
+                icon: 'success',
+                text: 'Email Send Successfully!!'
+            })
+        {% endif %}
+    </script>
+{% endblock %}

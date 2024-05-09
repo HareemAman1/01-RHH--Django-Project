@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+
+<head>
+    <!-- Basic -->
+    <meta charset="utf-8"/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"/>
+    <!-- Mobile Metas -->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no"/>
+    <!-- Site Metas -->
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta name="author" content=""/>
+     <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png' %}">
+  <link rel="icon" type="image/x-icon" href="{% static 'images/logo.png' %}">
+
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'shop/css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700|Roboto:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'shop/css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'shop/css/responsive.css' %}" rel="stylesheet" />
+  <!-- slider stylesheet -->
+  <link rel="stylesheet" type="text/css"
+    href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css" />
+
+  <!-- font awesome style -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+  <!-- bootstrap core css -->
+  <link rel="stylesheet" type="text/css" href="{% static 'shop/css/bootstrap.css' %}" />
+
+  <!-- fonts style -->
+  <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700|Roboto:400,700&display=swap" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="{% static 'shop/css/style.css' %}" rel="stylesheet" />
+  <!-- responsive style -->
+  <link href="{% static 'shop/css/responsive.css' %}" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/1.1.3/sweetalert.min.css">
+
+
+    <title>RHH pharmacy</title>
+
+    <!-- Favicon  -->
+    <link rel="icon" type="image/x-icon" href="{% static 'shop/images/logo.png' %}">
+
+    <!-- slider stylesheet -->
+    <link rel="stylesheet" type="text/css"
+          href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.1.3/assets/owl.carousel.min.css"/>
+ <link href="{% static 'shop/css/responsive.css' %}" rel="stylesheet"/>
+    <!-- font awesome style -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+
+    <!-- bootstrap core css -->
+    <link rel="stylesheet" type="text/css" href="{% static 'shop/css/bootstrap.css' %}"/>
+
+    <!-- fonts style -->
+    <link href="https://fonts.googleapis.com/css?family=Poppins:400,600,700|Roboto:400,700&display=swap"
+          rel="stylesheet">
+
+    <!-- Custom styles for this template -->
+    <link href="{% static 'shop/css/style.css' %}" rel="stylesheet"/>
+    <!-- responsive style -->
+    <link href="{% static 'shop/css/responsive.css' %}" rel="stylesheet"/>
+</head>
+
+<body class="sub_page">
+<div class="hero_area">
+    <!-- header section strats -->
+    <header class="header_section">
+        <div class="container">
+            <div class="top_contact-container">
+                <div class="tel_container">
+                    <a href="">
+                        <img src="{% static 'shop/images/telephone-symbol-button.png' %}" alt=""> Call : +92 3123660116
+                    </a>
+                </div>
+                <div class="social-container">
+                    <a href="https://www.facebook.com/">
+                        <img src="{% static 'shop/images/fb.png' %}" alt="" class="s-1">
+                    </a>
+                    <a href="https://twitter.com/i/flow/login">
+                        <img src="{% static 'shop/images/twitter.png' %}" alt="" class="s-2">
+                    </a>
+                    <a href="https://www.instagram.com/?hl=en">
+                        <img src="{% static 'shop/images/instagram.png' %}" alt="" class="s-3">
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="container-fluid">
+            <nav class="navbar navbar-expand-lg custom_nav-container pt-3">
+                <a class="navbar-brand" href="{% url 'home' %}"> {% comment %}  static 'index.html' {% endcomment %}
+                    <img src="{% static 'shop/images/logo.png' %}" alt="">
+                    <span>
+              RHH pharmacy
+            </span>
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse"
+                        data-target="#navbarSupportedContent"
+                        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <div class="d-flex  flex-column flex-lg-row align-items-center w-100 justify-content-center">
+                        <ul class="navbar-nav  ">
+                            <li class="nav-item active">
+                                <a id="home"  class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="about" class="nav-link" href="{% url 'about' %}"> About </a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="buy" class="nav-link" href="{% url 'buy' %}"> Buy Medicines </a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="news" class="nav-link" href="{% url 'news' %}"> News </a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="cart" class="nav-link" href="{% url 'cart' %}">Cart</a>
+                            </li>
+                            {% if request.session.is_logged %}
+                               <li class="nav-item">
+                                <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+                            </li>
+                            {% else %}
+                                <li class="nav-item">
+                                <a id="login" class="nav-link" href="{% url 'login' %}">Login</a>
+                            </li>
+                            {% endif %}
+
+                        </ul>
+                    </div>
+                </div>
+
+            </nav>
+        </div>
+    </header>
+    <!-- end header section -->
+</div>
+{% block content%}
+
+    {% endblock%}
+
+<!-- info section -->
+<section class="info_section layout_padding2">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                <div class="info_contact">
+                    <h4>
+                        Contact
+                    </h4>
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'shop/images/telephone-symbol-button.png' %}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h6>
+                                +92 3123660116
+                            </h6>
+                        </div>
+                    </div>
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="{% static 'shop/images/email.png' %}" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h6>
+                                RHHpharmacy@gmail.com
+                            </h6>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3">
+                <div class="info_menu">
+                    <h4>
+                        Menu
+                    </h4>
+                    <ul class="navbar-nav  ">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="{% url 'home' %}">Home <span class="sr-only">(current)</span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="{% url 'about' %}"> About </a>
+                        </li>
+                        <li class="nav-item">
+                            {% comment %}
+                                <a class="nav-link" href="{% url 'buy' %}"> Buy Medicines </a> {% endcomment %}
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-6">
+
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="container-fluid footer_section">
+    <p>
+        &copy; 2023 All Rights Reserved. Design by Hammad, Hareem, Rahima</a>
+    </p>
+</section>
+<script type="text/javascript" src="{% static 'shop/js/jquery-3.4.1.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'shop/js/bootstrap.js' %}"></script>
+<script type="text/javascript"
+        src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.2.1/owl.carousel.min.js"></script>
+
+</body>
+
+</html>

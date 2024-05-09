@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<head>
+    <title>Login</title>
+    <style>
+        .contact_section .form_contaier form a {
+            display: inline-block;
+            padding: 10px 50px;
+            background-color: #121313;
+            border: 1px solid #121313;
+            color: #ffffff;
+            border-radius: 5px;
+            margin-top: 15px;
+            float: right;
+        }
+        
+            #login{
+              border-bottom: 4px solid #10e7f4;
+              font-weight: bold;
+            }
+        
+    </style>
+</head>
+
+
+<!-- Contact section -->
+<section class="contact_section" style="height: 570px">
+    <div class="container pt-5">
+        <div class="row  d-flex justify-content-center ">
+            <div class="custom_heading-container ">
+                <h2>
+                    LOGIN
+                </h2>
+            </div>
+        </div>
+    </div>
+    <div class="container layout_padding2">
+        <div class="row d-flex justify-content-center ">
+            <div class="col-md-5">
+                <div class="form_contaier">
+                    <form method="post" action="{% url 'login' %}">
+                        {% csrf_token %}
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" name="email" type="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input id="password" name="password" type="password" class="form-control">
+                        </div>
+                        <button type="submit" class="">Login</button>
+                        <a type="submit" class="" href="{% url 'signup' %}"> Sign Up</a>
+                        <!-- <a type="submit" class=""  href="{% url 'signup' %}">Sign Up</a> -->
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+{# <div class="container">#}
+    {# <h2>Login</h2>#}
+    {# <form method="post">#}
+        {# {% csrf_token %}#}
+        {# <label for="username">Username:</label>#}
+        {# <input type="text" id="username" name="username" required>#}
+        {# <label for="password">Password:</label>#}
+        {# <input type="password" id="password" name="password" required>#}
+        {# <input type="submit" value="Login">#}
+        {# </form>#}
+    {# </div>#}
+{% endblock %}

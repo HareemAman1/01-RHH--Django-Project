@@ -1,0 +1,50 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <head>
+        <title>OTP</title>
+    </head>
+
+
+    <!-- Contact section -->
+    <section class="contact_section" style="height: 570px">
+        <div class="container pt-5">
+            <div class="row  d-flex justify-content-center ">
+                <div class="custom_heading-container ">
+                    <h2>
+                        Verify Your Account
+                    </h2>
+                </div>
+            </div>
+        </div>
+        <div class="container layout_padding2">
+            <div class="row d-flex justify-content-center ">
+                <div class="col-md-5">
+                    <div class="form_contaier">
+                        <form method="post"  action="{% url 'otp-verify' %}">
+                            {% csrf_token %}
+                            <div class="form-group">
+                                <input  type="hidden" class="form-control" name="email" id="email" value="{{ email }}">
+                                <label for="otp">OTP</label>
+                                <input id="otp" name="otp" type="number" class="form-control">
+                            </div>
+                            <button type="submit" class="">Verify</button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+    {% if error %}
+        <script>
+            swal({
+                title: 'Verification Error',
+                icon: 'error',
+                text: '{{ error_msg }}'
+            })
+
+        </script>
+    {% endif %}
+{% endblock %}
+
